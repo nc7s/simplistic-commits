@@ -1,0 +1,111 @@
+# Simplistic Commits {Version}
+:Version: 0.0.1
+
+Like https://www.conventionalcommits.org[Conventional Commits], but more simplistic.
+
+## Summary
+----
+<type code>[/<scope>][/<scope>]: <short description>
+
+[optional body]
+----
+
+Examples:
+
+----
+D/readme: D means docs
+----
+
+----
+F/gravicannon/constants: use correct gravity constant on Mars
+----
+
+----
+N/gravicannon: accept different mass classes
+
+
+----
+
+## Commits
+"Modularize" your commits. Don't make a giant, contains-everything commit.
+
+## First line
+
+The first line is a summary of the commit. Should fit in 70 Unicode characters.
+
+### Type codes
+
+Upper case letters.
+
+* N: feature implementation
+* F: fix
+* R: refactor
+* D: docs
+* P: performance improvement
+* T: test
+* B: build config
+* FS: fix style, formatting, etc.
+* FT: fix typo in code
+* FTD: fix typo in docs
+
+For breaking changes, add `!` at the beginning, e.g. `!R: remove old control panels`.
+
+Don't include multiple types in one commit. Break them down.
+
+For the very first commit, don't use 'init', 'initialize', or things like that.
+Describe what you _actually_ did.
+
+For documentation projects, like this one itself, use `N`, rather than `D`.
+
+### Scope(s)
+To describe what module(s) the commit is changing, add an optional scope.
+Describe levels by `/`, like a file path.
+
+If the commit involves multiple modules, write to the deepest common parent,
+e.g. `alpha/one` and `alpha/two` have the same parent `alpha`, then go with `alpha`.
+If multiple root modules are involved, don't write a scope.
+
+### Short description
+
+For `N`, or feature implementation, arrange it so it could fit in
+`The code is now able to <description>`,
+e.g. `The code is now able to *shoot farther under higher gravitation*`.
+
+Be concise, use shorter words.
+
+Should be in all lower case, except words that should be styled, e.g. API or GitHub.
+
+No punctuation marks at the end.
+
+## Body
+
+Can be omitted if the first line concisely describe in full what's going on.
+
+If the change consists of multiple smaller changes, list them by topics,
+or if they are on the same topic, by their modules.
+Use Markdown, AsciiDoc, or any markup your team agreed on.
+
+Root modules are level two.
+
+Add `!` at the beginning for breaking changes.
+
+Describe why the changes should be made, how the changes are made, what impacts they have,
+and why they are done this way, if necessary.
+
+Examples:
+
+[source,asciidoc]
+----
+## Gravity Cannon
+### !Constants
+The gravity constants differ on different latitudes,
+and the cannon requires high precision.
+## Launchpad
+Add `determine_gravity_constant()`, for different locations.
+----
+
+## License
+
+https://creativecommons.org/licenses/by/4.0/[CC-BY-4.0]
+
+(c) 2021 Blair Noctis
