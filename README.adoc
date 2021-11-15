@@ -5,7 +5,7 @@ Like https://www.conventionalcommits.org[Conventional Commits], but more simplis
 
 ## Summary
 ----
-<type code>[/<scope>][/<scope>]: <short description>
+<type code>[<scope>:] <short description>
 
 [optional body]
 ----
@@ -13,28 +13,26 @@ Like https://www.conventionalcommits.org[Conventional Commits], but more simplis
 Examples:
 
 ----
-D/readme: D means docs
+D readme: D means docs
 ----
 
 ----
-F/gravicannon/constants: use correct gravity constant on Mars
+F gravicannon/constants: use correct gravity constant on Mars
 ----
 
 ----
-N/gravicannon: accept different mass classes
-
-
+N gravicannon: accept different mass classes
+N launchpad: provide portals for different mass classes
+F!gravicannon: use 
 ----
 
 ## Commits
 "Modularize" your commits. Don't make a giant, contains-everything commit.
 
 ## First line
-
 The first line is a summary of the commit. Should fit in 70 Unicode characters.
 
 ### Type codes
-
 Upper case letters.
 
 * N: feature implementation
@@ -43,12 +41,18 @@ Upper case letters.
 * D: docs
 * P: performance improvement
 * T: test
-* B: build config
-* FS: fix style, formatting, etc.
-* FT: fix typo in code
-* FTD: fix typo in docs
+* B: build and CI/CD config
+* S: fix style, formatting, etc.
+* T: fix typo in code
+* U: fix typo in docs
+* V: bump version
 
-For breaking changes, add `!` at the beginning, e.g. `!R: remove old control panels`.
+For breaking changes, add `!` after the type code, e.g. `R!remove old control panels`.
+
+* `<type code> <short description>`
+* `<type code>!<short description>` for breaking change
+* `<type code> <scope>: <short description>`
+* `<type code>!<scope>: <short description>` for breaking change
 
 Don't include multiple types in one commit. Break them down.
 
@@ -66,7 +70,6 @@ e.g. `alpha/one` and `alpha/two` have the same parent `alpha`, then go with `alp
 If multiple root modules are involved, don't write a scope.
 
 ### Short description
-
 For `N`, or feature implementation, arrange it so it could fit in
 `The code is now able to <description>`,
 e.g. `The code is now able to *shoot farther under higher gravitation*`.
@@ -78,7 +81,6 @@ Should be in all lower case, except words that should be styled, e.g. API or Git
 No punctuation marks at the end.
 
 ## Body
-
 Can be omitted if the first line concisely describe in full what's going on.
 
 If the change consists of multiple smaller changes, list them by topics,
@@ -105,7 +107,6 @@ Add `determine_gravity_constant()`, for different locations.
 ----
 
 ## License
-
 https://creativecommons.org/licenses/by/4.0/[CC-BY-4.0]
 
 (c) 2021 Blair Noctis
